@@ -27,3 +27,16 @@ pywin32>=304; sys_platform == "win32"
 
 # GPU Monitoring (NVIDIA-specific, Optional)
 pynvml>=11.4.0
+
+# ULTIMATE VERSION ADDITIONAL REQUIREMENTS
+# Windows Advanced Features
+win32api>=227
+win32con>=227
+win32process>=227
+win32security>=227
+
+# Enhanced System Integration
+winreg>=0.1.0
+
+# Performance Optimization
+pygame-ce>=2.3.0  # Community Edition for better performance
