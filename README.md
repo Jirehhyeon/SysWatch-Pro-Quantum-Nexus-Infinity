@@ -1,255 +1,131 @@
-# SysWatch Pro - System Monitoring Tool
+# 🖥️ SysWatch Pro ADVANCED ULTIMATE
 
-A powerful, cross-platform system monitoring utility written in C, designed for real-time performance tracking and system analysis.
+**The Ultimate 1920x1080 Full-Screen System Monitor with 3D Visualization**
 
-## Features
+A professional-grade system monitoring tool featuring real-time 3D graphics, advanced process management, and comprehensive system analytics.
 
-### Community Edition (Free)
-- ✅ Real-time CPU, memory, and disk monitoring
-- ✅ Process list with basic information
-- ✅ Simple command-line interface
-- ✅ Basic system information display
-- ✅ Cross-platform support (Windows/Linux)
+## ✨ Features
 
-### Professional Edition
-- 🚀 **Performance History**: Track system performance over time
-- 🔔 **Smart Alerts**: Configurable threshold-based notifications
-- 📊 **Data Export**: CSV, JSON, XML export formats
-- ⚙️ **Background Service**: Continuous monitoring mode
-- 🎯 **Process Management**: Kill, suspend, detailed process info
-- 📈 **Advanced Analytics**: Trend analysis and reporting
-- 🛠️ **Configuration Management**: Save/load custom settings
-- 💼 **Technical Support**: Priority email support
+### 🎯 **Full-Screen Experience**
+- **1920x1080 optimized interface**
+- **Pure black background** with neon glow effects
+- **60FPS smooth animations**
+- **High-contrast visualization**
 
-## Quick Start
+### 📊 **3D System Visualization**
+- **5 Real-time 3D circles**: CPU, Memory, Disk, Network, GPU
+- **4 Dynamic 3D graphs** with 300 data points history
+- **Particle system** responding to system activity
+- **Gradient effects** with depth perception
 
-### Windows (MSVC)
-```bash
-# Build with Visual Studio
-mkdir build
-cd build
-cl /I..\include ..\src\*.c /Fe:syswatch.exe psapi.lib pdh.lib
+### 🔬 **Comprehensive System Information**
+1. **System**: OS, Computer name, User, Boot time, Uptime
+2. **CPU**: Model, Per-core usage, Temperature, Frequency, Cache
+3. **Memory**: Total/Used/Available, Cache, Swap memory
+4. **Disk**: Drive usage, Real-time Read/Write speeds
+5. **Network**: IP addresses, Interfaces, Upload/Download speeds
+6. **GPU**: Name, Usage, Memory, Temperature (NVIDIA + General)
+7. **Registry**: Windows version, Startup programs
 
-# Or use the provided Makefile with MinGW
-make
-```
+### ⚡ **Advanced Process Management**
+- **High CPU/Memory usage** process detection
+- **Suspicious process detection** (malware, miners, trojans)
+- **Click-to-terminate** functionality
+- **Real-time process ranking**
+- **Scrollable process lists**
 
-### Windows (MinGW)
-```bash
-# Install dependencies
-# MinGW with GCC
+## 🚀 Quick Start
 
-# Build
-make
-```
+### Requirements
+- **Windows 10/11**
+- **Python 3.7+**
+- **1920x1080 display** (recommended)
 
-### Linux
-```bash
-# Install dependencies
-sudo apt-get install build-essential
+### Installation & Run
+1. Download both files
+2. Double-click `SIMPLE_RUN.bat`
+3. Or run: `python SysWatch_Pro_ADVANCED_ULTIMATE.py`
 
-# Build
-make
-```
+**Note**: All required packages are automatically installed on first run.
 
-## Usage
+## 🎮 Controls
 
-### Basic Monitoring
-```bash
-# Start real-time monitoring
-./syswatch
+| Key | Action |
+|-----|--------|
+| **ESC** | Exit fullscreen |
+| **SPACE** | Take screenshot |
+| **R** | Refresh data |
+| **S** | Save data to JSON |
+| **Mouse** | Scroll panels, click to terminate processes |
 
-# Update every 5 seconds
-./syswatch -i 5
+## 🛡️ Permissions
 
-# Run system test
-./syswatch --test
-```
+- **Administrator privileges recommended** for:
+  - Registry access
+  - Process termination
+  - Advanced GPU information
 
-### Professional Features
-```bash
-# Enable alerts and background monitoring
-./syswatch -a -b
+## 🎨 Visual Effects
 
-# Export performance data
-./syswatch -o report.csv -f csv
+- **Neon glow borders**
+- **Gradient backgrounds**
+- **3D depth effects**
+- **Animated particles**
+- **Dynamic color coding**:
+  - 🟢 Green: Good performance (< 30%)
+  - 🟡 Yellow: Warning (30-70%)
+  - 🔴 Red: High usage (> 70%)
 
-# Load custom configuration
-./syswatch -c config.conf
+## 📈 Performance
 
-# Set custom thresholds
-./syswatch --cpu-threshold 70 --memory-threshold 80
-```
+- **500ms update interval**
+- **300 history data points**
+- **Real-time 3D rendering**
+- **Multi-threaded data collection**
+- **Optimized for 60FPS**
 
-## Configuration
+## 🔧 Technical Details
 
-Create a `syswatch.conf` file:
-```ini
-# Update interval in seconds
-update_interval=1
+### Auto-installed Dependencies
+- `psutil` - System information
+- `pygame-ce` - Graphics rendering
+- `numpy` - Numerical computations
+- `py-cpuinfo` - CPU details
+- `wmi` - Windows management
+- `GPUtil` - GPU information
+- `pynvml` - NVIDIA GPU support (optional)
 
-# Enable alerts (Pro only)
-enable_alerts=true
+### System Support
+- **GPU**: NVIDIA (advanced), General (basic)
+- **Multi-core**: Up to 32 cores visualization
+- **Multi-drive**: All mounted drives
+- **Network**: All interfaces with IP addresses
 
-# Alert thresholds (Pro only)
-cpu_threshold=80.0
-memory_threshold=85.0
-disk_threshold=90.0
+## 📸 Screenshots
 
-# Log file (Pro only)
-log_file=syswatch.log
-```
+The program automatically saves screenshots as `advanced_monitor_YYYYMMDD_HHMMSS.png`
 
-## System Requirements
+## 💾 Data Export
 
-### Windows
-- Windows 7 or later
-- Visual Studio 2019+ or MinGW-w64
-- Administrator privileges for some features
+Press **S** to save current system data as JSON with timestamp.
 
-### Linux
-- Linux kernel 2.6+
-- GCC 4.8+
-- Root privileges for some features
+## ⚠️ Security Features
 
-## Professional Upgrade
-
-Upgrade to Professional edition for advanced features:
-- 📧 **Email**: pro@syswatch-tools.com
-- 🌐 **Website**: https://syswatch-pro.com
-- 💰 **Pricing**: $29.99 one-time purchase
-
-### License Benefits
-- ✅ Lifetime license (no subscription)
-- ✅ Free updates for 1 year
-- ✅ Priority technical support
-- ✅ Commercial use allowed
-- ✅ Source code access (additional fee)
-
-## Architecture
-
-```
-SysWatch Pro/
-├── src/
-│   ├── main.c              # Main application and CLI
-│   ├── system_info.c       # System information collection
-│   ├── process_monitor.c   # Process monitoring and management
-│   └── utils.c             # Utilities and formatting
-├── include/
-│   └── syswatch.h          # Public API and structures
-├── build/                  # Build artifacts
-├── docs/                   # Documentation
-└── Makefile               # Build configuration
-```
-
-## API Documentation
-
-### Core Functions
-```c
-// Initialize monitoring system
-int init_monitor(monitor_config_t *config);
-
-// Get current system information
-int get_system_info(system_info_t *info);
-
-// Get process list
-int get_process_list(process_info_t *processes, int *count, int max_count);
-
-// Cleanup resources
-int cleanup_monitor(void);
-```
-
-### Professional Functions
-```c
-// Export performance data (Pro only)
-int export_performance_data(const char *filename, const char *format);
-
-// Set alert thresholds (Pro only)
-int set_alert_thresholds(double cpu, double memory, double disk);
-
-// Background monitoring (Pro only)
-int start_background_monitoring(void);
-int stop_background_monitoring(void);
-```
-
-## Performance
-
-- **Memory Usage**: < 10MB resident memory
-- **CPU Overhead**: < 1% on modern systems
-- **Update Frequency**: 1-60 seconds configurable
-- **Process Capacity**: Up to 1000 processes tracked
-- **History Storage**: 60 data points (Pro edition)
-
-## Contributing
-
-We welcome contributions! Please see our contributing guidelines:
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests if applicable
-5. Submit a pull request
-
-### Development Setup
-```bash
-git clone https://github.com/syswatch-pro/syswatch.git
-cd syswatch
-make debug
-./build/syswatch --test
-```
-
-## Support
-
-### Community Support
-- 📧 **Email**: support@syswatch-tools.com
-- 💬 **Forum**: https://forum.syswatch-pro.com
-- 🐛 **Issues**: https://github.com/syswatch-pro/syswatch/issues
-
-### Professional Support
-- 🎯 **Priority Email**: pro-support@syswatch-tools.com
-- 📞 **Phone**: +1-555-SYSWATCH
-- ⏰ **Response Time**: 24 hours guaranteed
-
-## License
-
-### Community Edition
-GNU General Public License v3.0 - see LICENSE file
-
-### Professional Edition
-Commercial license - contact sales@syswatch-tools.com
-
-## Roadmap
-
-### Version 1.1 (Q2 2025)
-- [ ] Web dashboard interface
-- [ ] Network monitoring
-- [ ] GPU usage tracking
-- [ ] Docker container monitoring
-
-### Version 1.2 (Q3 2025)
-- [ ] Historical trending
-- [ ] Email/SMS alerts
-- [ ] REST API
-- [ ] Plugin system
-
-### Version 2.0 (Q4 2025)
-- [ ] Machine learning anomaly detection
-- [ ] Predictive alerts
-- [ ] Multi-server monitoring
-- [ ] Cloud deployment options
-
-## Changelog
-
-### v1.0.0 (2025-01-20)
-- ✅ Initial release
-- ✅ Basic system monitoring
-- ✅ Process management
-- ✅ Professional licensing system
-- ✅ Cross-platform support
-- ✅ Export functionality
+- **Malware detection patterns**
+- **Suspicious process identification**
+- **Safe process termination**
+- **Registry monitoring**
 
 ---
 
-**SysWatch Pro** - Professional System Monitoring Made Simple
+## 📄 License
 
-Copyright (C) 2025 SysWatch Technologies. All rights reserved.
+Copyright (C) 2025 Advanced System Monitor Corp
+
+## 🤝 Contributing
+
+This is a complete, standalone system monitor. Feel free to fork and enhance!
+
+---
+
+**Enjoy monitoring your system with style!** 🚀
