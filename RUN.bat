@@ -8,6 +8,7 @@ echo Starting Quantum Holographic Interface...
 echo Press Ctrl+C to exit
 echo.
 
+cd /d "%~dp0"
 python SysWatch_Pro_QUANTUM_NEXUS_INFINITY.py
 
 if errorlevel 1 (

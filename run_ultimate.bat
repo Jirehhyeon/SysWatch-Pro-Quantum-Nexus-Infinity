@@ -25,6 +25,7 @@ echo.
 echo ============================================================
 echo.
 
+cd /d "%~dp0"
 python SysWatch_Pro_QUANTUM_NEXUS_INFINITY_ULTIMATE.py
 
 if errorlevel 1 (

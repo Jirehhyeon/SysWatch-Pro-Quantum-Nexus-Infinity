@@ -64,6 +64,7 @@ class QuantumColors:
     QUANTUM_RUBY = (255, 0, 128)
     QUANTUM_SAPPHIRE = (0, 128, 255)
     QUANTUM_PLASMA = (255, 0, 200)
+    PLASMA = (255, 0, 200)
     
     # Energy Colors
     ENERGY_BLUE = (0, 191, 255)
@@ -889,8 +890,11 @@ class QuantumHolographicUniverse:
                 
                 screen_pos = self.engine.project_3d_to_2d(node['pos'])
                 if 0 <= screen_pos[0] < self.width and 0 <= screen_pos[1] < self.height:
-                    pygame.gfxdraw.filled_circle(self.screen, screen_pos[0], screen_pos[1], 
-                                               int(size), (*color, min(255, intensity)))
+                    try:
+                        pygame.gfxdraw.filled_circle(self.screen, screen_pos[0], screen_pos[1], 
+                                                   int(size), color)
+                    except:
+                        pygame.draw.circle(self.screen, color, screen_pos, int(size))
         
         # Draw energy fields
         for field in self.energy_fields:
@@ -955,13 +959,18 @@ class QuantumHolographicUniverse:
                     # Glow effect
                     for i in range(3):
                         glow_size = int(size + i * 3)
-                        glow_alpha = int(node['activation'] * 100 / (i + 1))
-                        pygame.gfxdraw.filled_circle(self.screen, screen_pos[0], screen_pos[1],
-                                                   glow_size, (*color, glow_alpha))
+                        try:
+                            pygame.gfxdraw.filled_circle(self.screen, screen_pos[0], screen_pos[1],
+                                                       glow_size, color)
+                        except:
+                            pygame.draw.circle(self.screen, color, screen_pos, glow_size)
                     
                     # Core
-                    pygame.gfxdraw.filled_circle(self.screen, screen_pos[0], screen_pos[1],
-                                               int(size), color)
+                    try:
+                        pygame.gfxdraw.filled_circle(self.screen, screen_pos[0], screen_pos[1],
+                                                   int(size), color)
+                    except:
+                        pygame.draw.circle(self.screen, color, screen_pos, int(size))
         
         # Draw data streams
         for stream in self.data_streams:
@@ -979,19 +988,24 @@ class QuantumHolographicUniverse:
                     
                     if 0 <= screen_pos[0] < self.width and 0 <= screen_pos[1] < self.height:
                         # Particle with trail
-                        pygame.gfxdraw.filled_circle(self.screen, screen_pos[0], screen_pos[1],
-                                                   particle['size'] + 2, (*stream['color'], 50))
-                        pygame.gfxdraw.filled_circle(self.screen, screen_pos[0], screen_pos[1],
-                                                   particle['size'], stream['color'])
+                        try:
+                            pygame.gfxdraw.filled_circle(self.screen, screen_pos[0], screen_pos[1],
+                                                       particle['size'] + 2, stream['color'])
+                            pygame.gfxdraw.filled_circle(self.screen, screen_pos[0], screen_pos[1],
+                                                       particle['size'], stream['color'])
+                        except:
+                            pygame.draw.circle(self.screen, stream['color'], screen_pos, particle['size'])
         
         # Draw quantum particles
         for particle in self.quantum_particles[:500]:  # Limit for performance
             screen_pos = self.engine.project_3d_to_2d(particle['pos'])
             
             if 0 <= screen_pos[0] < self.width and 0 <= screen_pos[1] < self.height:
-                alpha = min(255, particle['lifetime'])
-                pygame.gfxdraw.filled_circle(self.screen, screen_pos[0], screen_pos[1],
-                                           particle['size'], (*particle['color'], alpha))
+                try:
+                    pygame.gfxdraw.filled_circle(self.screen, screen_pos[0], screen_pos[1],
+                                               particle['size'], particle['color'])
+                except:
+                    pygame.draw.circle(self.screen, particle['color'], screen_pos, particle['size'])
         
         # Draw holographic displays
         font = pygame.font.Font(None, 20)
